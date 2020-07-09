@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'LoginPage.dart';
 
 class Register extends StatefulWidget {
   Register({Key key}) : super(key: key);
@@ -41,10 +40,8 @@ class _RegisterState extends State<Register> {
         actions: <Widget>[
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => Login()));
+              Navigator.popAndPushNamed(context,'Login');
+                
             },
             child: Text(
               'Log In',

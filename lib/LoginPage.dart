@@ -1,4 +1,3 @@
-import 'package:example/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,6 +20,9 @@ class _LoginState extends State<Login> {
             .signInWithEmailAndPassword(email: _email, password: _password);
         FirebaseUser user = result.user;
         print('$user.uid');
+       if(user!=null){
+          Navigator.pushNamed(context, 'Profile');
+       }
       } catch (e) {
         print(e.message);
       }
@@ -40,10 +42,7 @@ class _LoginState extends State<Login> {
         actions: <Widget>[
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => Register()));
+              Navigator.popAndPushNamed(context,'Register');
             },
             child: Text(
               'Register',

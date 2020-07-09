@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
            InkWell(
              onTap: (){
                Database().signOut();
-               Navigator.popUntil(context, ModalRoute.withName('Login'));
+               Navigator.popAndPushNamed(context, 'Login');
              },
              child: Text('SignOut'),
            ),
